@@ -6,7 +6,7 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
     // clear the deposit input field after getting the value
     depositField.value = '';
 
-    if(isNaN(newDepositAmount)){
+    if(isNaN(newDepositAmount) || newDepositAmount < 0){
         alert('Enter valid number.');
         return;
     }
@@ -26,6 +26,6 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
     const previousBalanceTotal = parseFloat(balanceTotalString);
 
     // 
-    const currentBalanceTotal = currentDepositTotal + previousBalanceTotal;
+    const currentBalanceTotal = newDepositAmount + previousBalanceTotal;
     balanceTotal.innerText = currentBalanceTotal;
 })
